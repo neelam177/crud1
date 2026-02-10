@@ -10,7 +10,9 @@ class StudentController extends Controller
     //
     function getStudents()
     {
+
+        echo Student::testFun();
         $students = Student::all();
-        return view('students',['data'=>$students]);
+        return view('students', ['data' => $students]);
     }
 }
