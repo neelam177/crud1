@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-
+use Symfony\Component\Routing\Route;
 
 class UserController extends Controller
 {
@@ -44,9 +44,43 @@ class UserController extends Controller
         // return "queries";
         // $result = DB::table('users')->get();
         // $result = DB::table('users')->where('phone','1234')->get();
-        $result = DB::table('users')->first(); // it returns only 1 array so we can use $result=[$result];
-        $result=[$result];
-        // return $result; // i want to display data in view
-        return view('queries', ['query' => $result]);
+        // $result = DB::table('users')->first(); // it returns only 1 array so we can use $result=[$result];
+        // $result = [$result];
+        // // return $result; // i want to display data in view
+        // return view('queries', ['query' => $result]);
+
+        //insert 
+        // $result = DB::table('users')->insert([
+        //     'name' => 'tony',
+        //     'email' => 'tony@gmail.com',
+        //     'phone' => '123456987'
+        // ]);
+        // if ($result) {
+        //     return "Data Inserted";
+        // } else {
+        //     return "data not inserted";
+        // }
+
+        //updated
+        // $result = DB::table('users')->where('name', 'tony')->update(['phone'=>'111111']);
+        // if ($result) {
+        //     return "Data Updated";
+        // } else {
+        //     return "data not Updated";
+        // }
+
+        //deleted
+        // $result = DB::table('users')->where('name', 'tony')->delete();
+        // if ($result) {
+        //     return "Data Deleted";
+        // } else {
+        //     return "data not Deleted";
+        // }
+    }
+
+    // form data crud
+    function get(Request $request)
+    {
+        return $request;
     }
 }

@@ -15,4 +15,7 @@ class StudentController extends Controller
         $students = Student::all();
         return view('students', ['data' => $students]);
     }
+    function add(){
+        return "heloo ";
+    }
 }
