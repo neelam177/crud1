@@ -11,5 +11,4 @@
         <button>Submit</button>
     </form>
 
-    <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
 </div>
