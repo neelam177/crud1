@@ -34,7 +34,8 @@ class StudentController extends Controller
     }
     function list()
     {
-        $student = Student::all();
+        // $student = Student::all();
+        $student = Student::paginate(5);
         return view('list-students', ['students' => $student]);
     }
     function delete($id)
@@ -52,6 +53,32 @@ class StudentController extends Controller
     }
     function editStudent(Request $request, $id)
     {
-        return $id;
+        $student = Student::find($id);
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+        if ($student->save()) {
+            return redirect('list');
+        } else {
+            return "update operation failed";
+        }
+
+        // return $id;
+        // return $request->input();
+    }
+    function search(Request $request)
+    {
+        $searchData = Student::where('name', 'like', "%$request->search%")->paginate(5);
+        return view('list-students', ['students' => $searchData, 'search' => $request->search]);
+    }
+    function deleteMultiples(Request $request)
+    {
+        $result = Student::destroy($request->ids);
+        if ($result) {
+            return redirect('list');
+        } else {
+            return "student data not deleted";
+        }
+        // return $request->ids;
     }
 }

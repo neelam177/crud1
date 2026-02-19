@@ -1,6 +1,6 @@
 <div>
     <h1>Update Student</h1>
-    <form action=" edit-student/{{ $data->id }}" method="post">
+    <form action="/edit-student/{{ $data->id }}" method="post">
         @csrf
         <input type="hidden" name="_method" value="put" />
         <input type="text" name="name" placeholder="Enter Name" value="{{ $data->name }}" />
