@@ -7,12 +7,11 @@
             <th>Name</th>
             <th>email</th>
             <th>batch</th>
-            @foreach ($data as $student)
+        @foreach ($data as $student)
         <tr>
             <td>{{ $student->name }}</td>
             <td>{{ $student->email }}</td>
             <td>{{ $student->batch }}</td>
-
         </tr>
         @endforeach
         </tr>
